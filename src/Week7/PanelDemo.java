@@ -6,7 +6,7 @@ public class PanelDemo {
     Frame f;
     Panel p;
 
-    ublic PanelDemo() {
+    public PanelDemo() {
         f = new Frame();
         f.setLayout(null);
 
