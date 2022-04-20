@@ -2,10 +2,10 @@ package Week7;
 
 import java.awt.*;
 
-public class FlowTestCenter extends Frame {
+public class FlowTestTwo extends Frame {
 
-    public FlowTestCenter() {
-        super("FlowTestCenter");
+    public FlowTestTwo() {
+        super("FlowTestTwo");
         // setLayout(new FlowLayout(FlowLayout.RIGHT, 0, 1));
         setLayout(new FlowLayout());
 

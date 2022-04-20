@@ -37,4 +37,5 @@ public class PopupDemo implements ActionListener { // Event 처리를 위한 인
     public void actionPerformed(ActionEvent e) { // 이벤트 처리
         pm.show(b, 10, 10);
     }
+    // 꼭 클래스내에서 전역 변수로 필요한 경우가 많기 때문에, 생성자 만들기 전에 변수를 만들어 놓는 것이다.
 }
