@@ -4,5 +4,5 @@ import java.awt.*;
 
 public class GridBagTest {
     Frame f;
-    // ¿¹Á¦ ¸¹ÀÌ µ¹·Áº¸±â ¿¹½À ¹× ½Ç½À -> gridbag
+    // ì˜ˆì œ ë§Žì´ ëŒë ¤ë³´ê¸° ì˜ˆìŠµ ë° ì‹¤ìŠµ -> gridbag
 }

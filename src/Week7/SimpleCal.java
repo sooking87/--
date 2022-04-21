@@ -18,7 +18,7 @@ public class SimpleCal {
         tf = new TextField(80);
         display.add(tf);
 
-        // Å°º¸µå ±¸¼º
+        // í‚¤ë³´ë“œ êµ¬ì„±
         board.setLayout(new GridLayout(5, 4));
         board.add(new Button("C"));
         board.add(new Button("%"));
