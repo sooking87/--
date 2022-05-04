@@ -12,10 +12,10 @@ public class JButtonTest {
         jf.getContentPane().setLayout(new GridLayout(2, 2));
 
         // 이미지 아이콘 생성 -> 이미지 가져오기 필요!
-        ImageIcon iplus = new ImageIcon("../Imgaes");
-        ImageIcon iminus = new ImageIcon();
-        ImageIcon imux = new ImageIcon();
-        ImageIcon idiv = new ImageIcon();
+        ImageIcon iplus = new ImageIcon("C:\\STUDY\\3학기\\전공\\객체\\src\\Images\\plus.png");
+        ImageIcon iminus = new ImageIcon("C:\\STUDY\\3학기\\전공\\객체\\src\\Images\\minus.png");
+        ImageIcon imux = new ImageIcon("C:\\STUDY\\3학기\\전공\\객체\\src\\Images\\multiple.png");
+        ImageIcon idiv = new ImageIcon("C:\\STUDY\\3학기\\전공\\객체\\src\\Images\\divide.png");
 
         // make Buttons with icons
         plus = new JButton(iplus);

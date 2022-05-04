@@ -26,7 +26,7 @@ public class TreeTest2 {
 
         // ImageICon 추가
         DefaultTreeCellRenderer render = new DefaultTreeCellRenderer();
-        render.setLeafInon(new ImageIcon("Document.git"));
+        render.setLeafIcon(new ImageIcon("Document.git"));
         jf.getContentPane().add(tree);
         jf.setSize(500, 500);
         jf.setVisible(true);
