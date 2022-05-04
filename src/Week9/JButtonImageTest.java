@@ -17,6 +17,7 @@ public class JButtonImageTest implements ActionListener {
 
         // Label과 Button 생성하여 패널에 추가
         jl = new JLabel("Click JButton to see Image");
+
         jb = new JButton("See Image!!");
 
         // JButton에 대하여 Event Listener 등록 : 클릭에 대한 Event를 받을 준비
@@ -33,7 +34,7 @@ public class JButtonImageTest implements ActionListener {
     // ActionListener 내에 정의된 메소드에 대해서 Implements를 함
     @Override
     public void actionPerformed(ActionEvent e) {
-        ImageIcon dog = new ImageIcon("../Images/dog.png");
+        ImageIcon dog = new ImageIcon("C:\\STUDY\\3학기\\전공\\객체\\src\\Images\\dog.png");
         System.out.println(dog);
         jl.setIcon(dog);
         jl.setText("Dog Joji");
