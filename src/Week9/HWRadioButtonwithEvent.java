@@ -11,9 +11,10 @@ public class HWRadioButtonwithEvent implements ItemListener {
     JPanel jp;
     ButtonGroup size;
     JRadioButton small, medium, large;
+    String[] compare = { "Small Size", "Medium Size", "Large Size" };
 
     public HWRadioButtonwithEvent() {
-        // 컨테이너 생성
+        // Create container
         jf = new JFrame("Radio Button Test : SSK");
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         c = jf.getContentPane();
@@ -21,28 +22,35 @@ public class HWRadioButtonwithEvent implements ItemListener {
 
         jp = new JPanel();
 
-        // 라벨 생성
-        title = new JLabel("What size of Coffe do you like to order?");
-        choose = new JLabel("Did not select the size");
+        // Create label
+        title = new JLabel("What size of Coffee do you like to order?", JLabel.CENTER);
+        choose = new JLabel("Did not select the size", JLabel.CENTER);
         choose.setForeground(Color.RED);
 
-        // RadioButton 생성 -> ButtonGroup에 추가
-        // RadioButton 클릭 여부에 따라 이벤트 처리를 해주어야 되므로 RadioButton에 이벤트 리스너 등록
+        // Create RadioButton -> Add to ButtonGroup
         size = new ButtonGroup();
         small = new JRadioButton("Small Size");
-        small.addItemListener(this);
         medium = new JRadioButton("Medium Size");
         large = new JRadioButton("Large Size");
         size.add(small);
         size.add(medium);
         size.add(large);
 
-        // 패널에 라디오버튼 부착
+        /*
+         * Register an event listener on the RadioButton
+         * because you need to handle an event depending on whether the RadioButton is
+         * clicked or not.
+         */
+        small.addItemListener(this);
+        medium.addItemListener(this);
+        large.addItemListener(this);
+
+        // Attach radio button to panel
         jp.add(small);
         jp.add(medium);
         jp.add(large);
 
-        // 컨테이너에 컴포넌트 부착
+        // Attach components to containers
         c.add(title, BorderLayout.NORTH);
         c.add(jp, BorderLayout.CENTER);
         c.add(choose, BorderLayout.SOUTH);
@@ -54,11 +62,14 @@ public class HWRadioButtonwithEvent implements ItemListener {
 
     @Override
     public void itemStateChanged(ItemEvent e) {
-        // TODO Auto-generated method stub
+        JRadioButton clicked = (JRadioButton) e.getItemSelectable();
 
-    }
+        // When an item is selected, only the selected item can be handled.
+        if (e.getStateChange() == ItemEvent.SELECTED) {
+            if (clicked == small || clicked == medium || clicked == large) {
+                choose.setText("Ordered " + clicked.getText() + ".");
+            }
+        }
 
-    public static void main(String[] args) {
-        new HWRadioButtonwithEventMain();
     }
 }

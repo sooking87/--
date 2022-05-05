@@ -12,32 +12,34 @@ public class HWJButtonTest implements ActionListener {
     JButton jb;
 
     public HWJButtonTest(String msg) {
-        // Frame 생성
+        // Create Frame
         jf = new JFrame(msg);
         jf.setTitle("JButton Event : SSK");
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         c = jf.getContentPane();
 
-        // Label과 Button 생성하여 패널에 추가
+        // Create a Label and Button and add them to the panel
         jl = new JLabel("Click JButton to see Image");
         jb = new JButton("See Image!!");
 
-        // JButton에 대하여 Event Listener 등록 : 클릭에 대한 Event를 받을 준비
+        // Register Event Listener for JButton: Prepare to receive event for click
         jb.addActionListener(this);
         jp = new JPanel();
         jp.add(jl);
         jp.add(jb);
         c.add(jp);
 
-        // JFrame에 Panel을 부착
+        // Attach Panel to JFrame
         jf.setSize(500, 500);
         jf.setVisible(true);
     }
 
-    // ActionListener 내에 정의된 메소드에 대해서 Implements를 함
+    // Implement the method defined in ActionListener
     @Override
     public void actionPerformed(ActionEvent e) {
+
         JButton source = (JButton) e.getSource();
+        // when clicked Good Luck button it should go back
         if (source.getText().equals("Good Luck")) {
             jl.setIcon(null);
             jl.setText("Click JButton to see Image");

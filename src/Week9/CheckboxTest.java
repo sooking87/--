@@ -48,6 +48,7 @@ public class CheckboxTest extends JFrame implements ItemListener {
 
         for (int i = 0; i < 3; i++) {
             if (source == buttons[i]) {
+                System.out.println(buttons[i].getText());
                 if (e.getStateChange() == ItemEvent.DESELECTED) {
                     pictureLabel[i].setIcon(null);
                 } else {
