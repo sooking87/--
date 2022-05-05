@@ -30,7 +30,8 @@ public class TabTest {
 
         // Tab의 panel에 사진 붙히기
         // one : 로고 사진
-        ImageIcon logo = new ImageIcon("C:\\STUDY\\3학기\\전공\\객체\\src\\Images\\dog.png");
+        ImageIcon logo = new ImageIcon("C:\\STUDY\\3학기\\전공\\객체\\src\\Images\\sm_logo.png");
+        logo = imageSetSize(logo, 200, 200);
         JLabel jl = new JLabel("SMU Logo", logo, JLabel.RIGHT);
         jl.setFont(new Font("굴림", Font.BOLD, 30));
         one.add(jl);
@@ -47,5 +48,13 @@ public class TabTest {
         jf.setSize(500, 500);
         jf.setVisible(true);
 
+    }
+
+    ImageIcon imageSetSize(ImageIcon icon, int width, int height) {
+        Image ximg = icon.getImage(); // ImageIcon을 Image로 변환.
+        Image yimg = ximg.getScaledInstance(width, height, java.awt.Image.SCALE_SMOOTH);
+        // 이미지 화질 유지를 하면서 크기를 조절할 수 있는 메소드 getScaledInstance
+        ImageIcon xyimg = new ImageIcon(yimg);
+        return xyimg;
     }
 }
