@@ -9,6 +9,7 @@ public class TreeTest2 {
     public TreeTest2(String msg) {
         // 프레임 생성
         JFrame jf = new JFrame(msg);
+        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Tree Node 생성
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("ROOT");

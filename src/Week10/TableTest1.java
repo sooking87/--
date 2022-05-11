@@ -6,6 +6,7 @@ import javax.swing.*;
 public class TableTest1 {
     public TableTest1(String msg) {
         JFrame jf = new JFrame(msg);
+        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // Table column 설정
         String columnName[] = { "Name", "Phone", "E-mail" };
 
