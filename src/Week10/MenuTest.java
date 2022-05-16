@@ -40,19 +40,19 @@ public class MenuTest implements ActionListener {
         windows.addActionListener(this);
         linux.addActionListener(this);
 
-        // 메뉴를 위한 구성
-        // file 메뉴 안에 fileNew, lineNum, style이 들어간다.
-        file.add(fileNew);
-        file.addSeparator();
-        file.add(lineNum);
-        file.add(style);
-
         // style 위한 구성
         ButtonGroup bg = new ButtonGroup();
         bg.add(windows);
         bg.add(linux);
         style.add(windows);
         style.add(linux);
+
+        // 메뉴를 위한 구성
+        // file 메뉴 안에 fileNew, lineNum, style이 들어간다.
+        file.add(fileNew);
+        file.addSeparator();
+        file.add(lineNum);
+        file.add(style);
 
         bar.add(file);
         jf.setJMenuBar(bar);

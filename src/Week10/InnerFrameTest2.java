@@ -12,7 +12,10 @@ public class InnerFrameTest2 {
         jf = new JFrame(msg);
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        // 자식창들과 결합 시킬 패널 생성
         desktop = new JDesktopPane();
+
+        // 자식 창 생성
         inframe1 = new JInternalFrame("Inner Frame 1");
         inframe2 = new JInternalFrame("Inner Frame 2");
 
@@ -27,7 +30,7 @@ public class InnerFrameTest2 {
         desktop.add(inframe2);
 
         // JFrame setting
-        jf.getContentPane().add(desktop); // -> 이것만 하면(JDesktopPane 없이) 프레임이 안들어가짐 패널을 붙히기 위해서는 하나를 더 선언해주어야 됨 ->
+        jf.getContentPane().add(desktop); // -> 이것만 하면(JDesktopPane 없이) 프레임이 안들어가짐 패널을 붙히기 위해서는 하나를 더 선언해주어야 됨
                                           // JDesktopPane
         jf.setSize(600, 600);
         jf.setVisible(true);

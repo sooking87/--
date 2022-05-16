@@ -1,12 +1,19 @@
 package Week10;
 
-import java.awt.*;
-import javax.swing.*;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JTree;
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
-public class TreeTest2 {
-    public TreeTest2(String msg) {
+public class HWTreeTest3 {
+    JTree tree;
+
+    public HWTreeTest3(String msg) {
         // 프레임 생성
         JFrame jf = new JFrame(msg);
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -23,9 +30,20 @@ public class TreeTest2 {
         root.add(parent);
 
         // Tree 생성
-        JTree tree = new JTree(root);
+        tree = new JTree(root);
 
-        // ImageICon 추가
+        // Tree 이벤트 리스너 생성 + Event for Tree Node
+        tree.addTreeSelectionListener(new TreeSelectionListener() {
+            @Override
+            public void valueChanged(TreeSelectionEvent e) {
+                DefaultMutableTreeNode node = (DefaultMutableTreeNode) (e.getPath().getLastPathComponent());
+                Object nodeObj = node.getUserObject();
+                System.out.println("Path = " + e.getPath());
+                System.out.println("Object = " + nodeObj);
+            }
+        });
+
+        // ImageICon 이미지 크기 변경 및 추가
         DefaultTreeCellRenderer renderer = new DefaultTreeCellRenderer();
         ImageIcon leafIcon = new ImageIcon("C:\\STUDY\\3학기\\전공\\객체\\src\\Images\\leafFile.png");
         leafIcon = imageSetSize(leafIcon, 15, 20);
