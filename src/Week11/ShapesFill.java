@@ -2,13 +2,12 @@ package Week11;
 
 import javax.swing.*;
 
-public class MoreShapes extends JFrame {
-    public MoreShapes(String msg) {
+public class ShapesFill extends JFrame {
+    public ShapesFill() {
         setSize(600, 130);
-        setTitle(msg);
+        setTitle("Java 2D Shapes Fill Test :: SSK");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        JPanel panel = new MoreShapesPanel();
+        JPanel panel = new ShapesFillPanel();
         add(panel);
         setVisible(true);
     }

@@ -5,7 +5,6 @@ import javax.swing.*;
 
 public class MyShapePanel extends JPanel {
     public MyShapePanel() {
-
     }
 
     public void paintComponent(Graphics g) {

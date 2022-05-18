@@ -3,8 +3,8 @@ package Week11;
 import javax.swing.*;
 import java.awt.*;
 
-public class MyPanel1 extends JPanel {
-    public MyPanel1() {
+public class BasicPaintPanel extends JPanel {
+    public BasicPaintPanel() {
         // 화면에 그릴 때 필요한 초기화 기능
         setBorder(BorderFactory.createLineBorder(Color.black));
     }

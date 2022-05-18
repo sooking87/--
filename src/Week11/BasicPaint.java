@@ -10,7 +10,7 @@ public class BasicPaint {
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // 그리기 위한 Panel 생성
-        MyPanel1 mypanel1 = new MyPanel1();
+        BasicPaintPanel mypanel1 = new BasicPaintPanel();
 
         // mypanel1 붙히기
         f.add(mypanel1);
