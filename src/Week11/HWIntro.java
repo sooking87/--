@@ -23,5 +23,8 @@ public class HWIntro extends JPanel {
         g.drawString("이러한 값을 통해 요일에 따른 수업의 개수를 차트로 만들어보겠습니다.", 90, 380);
         g.drawString("나만의 차트에서는 막대 그래프를 통해서 걸음 수를 보여줍니다.", 110, 400);
         g.drawString("요일에 해당하는 버튼을 누르면, 구체적인 걸음수와 평균 걸음 수와의 차이를 보여줍니다. ", 30, 420);
+
+        g.setFont(new Font("돋움", Font.BOLD, 20));
+        g.drawString("IT공학전공_2116313_손수경_HW_차트 만들기", 80, 460);
     }
 }
