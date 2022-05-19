@@ -2,16 +2,27 @@ package Week11;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
-public class HWLinearChart extends JPanel {
+public class HWLinearChart extends JPanel implements ActionListener {
     JButton changeCol = new JButton("색상 변경");
     String week[] = { "월요일", "화요일", "수요일", "목요일", "금요일", "기타(싸강)" };
     String totalSub[] = { "(수업 4개)", "(수업 2개)", "(수업 없음)" };
     String majorSub[] = { "(전공 3개)", "(전공 1개)" };
     int axisY[] = { 90, 178, 266, 354, 445 }; // 인덱스 0 -> 4개일 때 y 좌표, 1 -> 3개일 때 y 좌표, ,,, 4 -> 0개일 때 y 좌표
 
+    // 버튼 구현 전 일단 랜덤으로 색깔 구분
+    Color totalSubCol = new Color((int) (Math.random() * 255.0), (int) (Math.random() * 255.0),
+            (int) (Math.random() * 255.0));
+    Color majorSubCol = new Color((int) (Math.random() * 255.0), (int) (Math.random() * 255.0),
+            (int) (Math.random() * 255.0));
+
     public HWLinearChart() {
+        setLayout(null);
+
         add(changeCol);
+        changeCol.setBounds(400, 100, 120, 40);
+        changeCol.addActionListener(this);
     }
 
     public void paintComponent(Graphics g) {
@@ -32,11 +43,6 @@ public class HWLinearChart extends JPanel {
             x += 80;
         }
 
-        // 버튼 구현 전 일단 랜덤으로 색깔 구분
-        Color totalSubCol = new Color((int) (Math.random() * 255.0), (int) (Math.random() * 255.0),
-                (int) (Math.random() * 255.0));
-        Color majorSubCol = new Color((int) (Math.random() * 255.0), (int) (Math.random() * 255.0),
-                (int) (Math.random() * 255.0));
         // 해당 요일의 수업 및 전공 수업 개수에 대한 "점" 찍기 & "선" 그리기 & "문자열" 그리기
         for (int day = 1; day <= 6; day++) { // day == 1 : 월요일
             if (day != 6) { // 선 그리기 위한 조건식 -> day == 2부터 선을 그린다.
@@ -98,8 +104,16 @@ public class HWLinearChart extends JPanel {
                 g.fillOval(75 + (day - 1) * 80, axisY[4], 8, 8);
                 g.drawLine(75 + (day - 1) * 80 + 4, axisY[4] + 4, 75 + day * 80 + 4, axisY[4] + 4);
             }
-
         }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        totalSubCol = new Color((int) (Math.random() * 255.0),
+                (int) (Math.random() * 255.0), (int) (Math.random() * 255.0));
+        majorSubCol = new Color((int) (Math.random() * 255.0),
+                (int) (Math.random() * 255.0), (int) (Math.random() * 255.0));
+        repaint();
 
     }
 }

@@ -30,7 +30,7 @@ public class HWMainFrame {
 
         // 세 번째: 막대 차트 만들기
         TitledBorder third = new TitledBorder(new LineBorder(Color.BLUE), "");
-        JPanel myPanel3 = new HWRectChart();
+        JPanel myPanel3 = new HWBarChart();
         myPanel3.setBorder(third);
         myPanel3.setBackground(Color.LIGHT_GRAY);
         screen.add(myPanel3);
@@ -49,9 +49,15 @@ public class HWMainFrame {
         myPanel5.setBackground(Color.LIGHT_GRAY);
         screen.add(myPanel5);
 
+        // 여섯 번째
+        TitledBorder six = new TitledBorder(new LineBorder(Color.BLUE), "");
+        JPanel myPanel6 = new HWEnd();
+        myPanel6.setBorder(six);
+        myPanel6.setBackground(Color.LIGHT_GRAY);
+        screen.add(myPanel6);
+
         jf.add(screen);
         jf.setSize(1920, 1080);
         jf.setVisible(true);
-
     }
 }
