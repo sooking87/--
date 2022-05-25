@@ -6,7 +6,7 @@ public class ColorTest extends JFrame {
     public ColorTest() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 500);
-        setTitle("Color Test");
+        setTitle("Color Test :: SSK");
         JPanel panel = new ColorPanel();
         add(panel);
         setVisible(true);

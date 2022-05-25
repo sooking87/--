@@ -13,7 +13,7 @@ public class ColorPanel extends JPanel implements ActionListener {
     // 패널 생성자
     public ColorPanel() {
         setLayout(new BorderLayout());
-        button = new JButton("Color Change");
+        button = new JButton("Color Change :: SSK");
         button.addActionListener(this);
         add(button, BorderLayout.SOUTH);
     }

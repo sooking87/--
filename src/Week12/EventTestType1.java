@@ -3,16 +3,18 @@ package Week12;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class EventTestFrame extends JFrame implements ActionListener {
+public class EventTestType1 extends JFrame implements ActionListener {
     JButton button;
     JLabel label;
 
-    public EventTestFrame(String msg) {
+    public EventTestType1(String msg) {
         setSize(400, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel panel = new JPanel();
         button = new JButton("Button");
         label = new JLabel("Please, Click the Button");
+
+        // 1st type :: Inherits Listener
         button.addActionListener(this);
 
         panel.add(button);
