@@ -18,7 +18,6 @@ public class EventTestType3 extends JFrame {
 
         // 이벤트 리스너 등록
         // 3rd Type :: No-name Inner Class
-        // 익명 클래스(무명씨)
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == button) {

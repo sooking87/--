@@ -32,9 +32,9 @@ public class TabwithHW implements ActionListener, ItemListener {
         hw3.setLayout(new BorderLayout());
 
         // Tabbing a JTabbedPane
-        tp.addTab("HW1", hw1);
-        tp.addTab("HW2", hw2);
-        tp.addTab("HW3", hw3);
+        tp.addTab("커피&라테&디카페인", hw1);
+        tp.addTab("요거트스무디&프라페", hw2);
+        tp.addTab("티&스파클링에이드", hw3);
 
         /* HW1 */
         // Create a Label and Button and add them to the panel

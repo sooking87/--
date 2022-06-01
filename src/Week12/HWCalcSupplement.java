@@ -1,10 +1,22 @@
 package Week12;
 
-import java.awt.*;
-import javax.swing.*;
-import java.awt.event.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.Panel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Stack;
 
-public class HWCalwithEvent implements ActionListener {
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+
+public class HWCalcSupplement implements ActionListener {
     JFrame jf;
     Panel buttons;
     GridBagConstraints gbc = new GridBagConstraints(); // add cells
@@ -23,7 +35,7 @@ public class HWCalwithEvent implements ActionListener {
     String nInput = ""; // 입력받은 문자열
     JButton opBtn; // 연산자의 이벤트 소스를 저장하는 변수 -> 버튼 색깔 변화를 위해서
 
-    public HWCalwithEvent() {
+    public HWCalcSupplement() {
         jf = new JFrame("Calculator with Event :: SSK");
         jf.setLayout(new BorderLayout(2, 2));
         jf.setBackground(new Color(233, 233, 233));
@@ -96,7 +108,7 @@ public class HWCalwithEvent implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton tempBtn = (JButton) e.getSource(); // 숫자든 연산자든 일단 버튼의 정보를 불러와서 tempBtn 변수에 저장
-
+        Stack<String> infix = new Stack<>();
         nInput = tempBtn.getText(); // tempBtn의 버튼 문자 정보를 nInput에 저장
 
         // 숫자인 경우
@@ -141,6 +153,7 @@ public class HWCalwithEvent implements ActionListener {
                 num1 = num1.substring(0, num1.length() - 1); // substirng(startIdx, endIdx) : start ~ end 까지 잘라줍니다.
                 output.setText(num1);
             } else {
+
                 num2 = num2.substring(0, num2.length() - 1); // substirng(startIdx, endIdx) : start ~ end 까지 잘라줍니다.
                 output.setText(num2);
             }
@@ -158,6 +171,7 @@ public class HWCalwithEvent implements ActionListener {
             num1 = Double.toString(Double.parseDouble(num1) * 0.01);
             output.setText(num1);
         } else { // 사칙 연산인 경우
+            infix.push(num1);
             opBtn = tempBtn; // 연산자의 Source를 저장
             operator = tempBtn.getText(); // 연산자 저장
             // 연산자 버튼이 눌리면 색깔을 다르게 만들어 줍니다.

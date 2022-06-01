@@ -1,7 +1,6 @@
 
 package Week12;
 
-import java.awt.event.*;
 import javax.swing.*;
 
 public class EventTestType5 extends JFrame {

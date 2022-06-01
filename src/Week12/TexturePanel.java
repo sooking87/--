@@ -29,6 +29,7 @@ public class TexturePanel extends JPanel {
         Graphics2D d2 = img.createGraphics();
         d2.drawImage(im, 0, 0, this);
         imgRect = new Rectangle(0, 0, im.getWidth(this), im.getHeight(this));
+        texture = new TexturePaint(img, imgRect);
     }
 
     public void paintComponent(Graphics g) {
@@ -40,5 +41,8 @@ public class TexturePanel extends JPanel {
         g2.fill(circle);
         Ellipse2D.Double circle2 = new Ellipse2D.Double(200, 20, 160, 160);
         g2.fill(circle2);
+
+        Rectangle2D.Double rect2 = new Rectangle2D.Double(200, 200, 600, 600);
+        g2.fill(rect2);
     }
 }

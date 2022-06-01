@@ -8,6 +8,7 @@ public class EventTestType1 extends JFrame implements ActionListener {
     JLabel label;
 
     public EventTestType1(String msg) {
+        setTitle(msg);
         setSize(400, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel panel = new JPanel();
@@ -27,7 +28,7 @@ public class EventTestType1 extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == button) {
-            label.setText("Clicked ths Button");
+            label.setText("Clicked this Button");
         }
 
     }

@@ -1,13 +1,8 @@
 
 package Week12;
 
-//import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-//import java.awt.Graphics;
-//import java.awt.geom.*;
-//import java.io.*;
-//import java.util.*;
 
 public class ItemEventType1 implements ActionListener, ItemListener {
     JFrame f;
@@ -78,7 +73,7 @@ public class ItemEventType1 implements ActionListener, ItemListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         f.setVisible(false);
-        f.dispose(); // ������ ����
-        System.exit(0); // �ý��� ����
+        f.dispose();
+        System.exit(0);
     }
 }
