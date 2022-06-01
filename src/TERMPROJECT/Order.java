@@ -24,7 +24,7 @@ public class Order extends JPanel {
         for (int i = 0; i < beverage.length; i++) {
             // 버튼에 패널 이름 넣어주기
             menuBtn[i] = new JButton(beverage[i]);
-            menuBtn[i].setFont(new Font("돋움", Font.PLAIN, 15));
+            menuBtn[i].setFont(new Font("굴림", Font.BOLD, 15));
             // 버튼에 이벤트 리스너 등록
             menuBtn[i].addActionListener(new ClickedMenuCategory());
             menuPanel.add(menuBtn[i]);

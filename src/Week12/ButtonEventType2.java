@@ -48,6 +48,7 @@ public class ButtonEventType2 extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent arg0) {
         if (++light >= 3) // 만약 1이 더해진 light가 3이상이라면
             light = 0; // 0부터 다시 시작
+        System.out.println(light);
         repaint();
     }
 }

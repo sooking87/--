@@ -4,9 +4,9 @@ import java.awt.*;
 import javax.swing.*;
 
 public class IntroPanel extends JPanel {
-    ImageIcon icon = new ImageIcon("C:\\STUDY\\3학기\\전공\\객체\\src\\Images\\imgLogo.png"); // 로고 사람 부분
+    ImageIcon icon = new ImageIcon("C:\\STUDY\\3학기\\전공\\--\\src\\Images\\imgLogo.png"); // 로고 사람 부분
     Image logoImg = icon.getImage();
-    ImageIcon icon2 = new ImageIcon("C:\\STUDY\\3학기\\전공\\객체\\src\\Images\\dessert39_logo.png"); // 로고 글씨 부분
+    ImageIcon icon2 = new ImageIcon("C:\\STUDY\\3학기\\전공\\--\\src\\Images\\dessert39_logo.png"); // 로고 글씨 부분
     Image logoTitle = icon2.getImage();
 
     public IntroPanel() {
@@ -27,6 +27,8 @@ public class IntroPanel extends JPanel {
         g.drawImage(logoTitle, 200, 580, 300, 100, this);
         // Command
         g.setFont(new Font("돋움", Font.ITALIC, 30));
-        g.drawString("[주문 하려면 화면을 클릭해주세요]", 100, 900);
+        g.drawString("[주문하려면 화면을 클릭해주세요]", 100, 900);
     }
 }
+
+// pc 경로: C:\\STUDY\\3학기\\전공\\객체\\src\\Images\\dessert39_logo.png

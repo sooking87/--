@@ -15,7 +15,7 @@ public class Smoothie extends JPanel {
         imagesPanel = new JPanel();
         imagesPanel.setLayout(new GridLayout(2, 4, 30, 80));
         for (int i = 0; i < 7; i++) {
-            images[i] = new ImageIcon("C:\\STUDY\\3학기\\전공\\객체\\src\\Images\\coffee\\smoothie.png");
+            images[i] = new ImageIcon("C:\\STUDY\\3학기\\전공\\--\\src\\Images\\coffee\\smoothie.png");
             images[i] = imageSetSize(images[i], 120, 120);
             imagesLabel[i] = new JLabel(images[i]);
             imagesPanel.add(imagesLabel[i]);
