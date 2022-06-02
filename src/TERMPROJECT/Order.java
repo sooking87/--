@@ -37,15 +37,15 @@ public class Order extends JPanel {
         tea = new Tea();
         bakery = new Bakery();
         // 패널을 배열에 넣어줌 -> 반복문을 사용해서 붙혀줄 예정
-        coffee.setBounds(0, 100, 700, 900);
+        coffee.setBounds(0, 100, 700, 700);
         add(coffee);
-        smoothie.setBounds(0, 100, 700, 600);
+        smoothie.setBounds(0, 100, 700, 700);
         smoothie.setVisible(false);
         add(smoothie);
-        tea.setBounds(0, 100, 700, 600);
+        tea.setBounds(0, 100, 700, 700);
         tea.setVisible(false);
         add(tea);
-        bakery.setBounds(0, 100, 700, 600);
+        bakery.setBounds(0, 100, 700, 700);
         bakery.setVisible(false);
         add(bakery);
 

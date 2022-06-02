@@ -10,6 +10,7 @@ public class IntroFrame {
     public IntroFrame() {
         frame.setTitle("IT공학전공_2116313_손수경_IntroFrame");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
 
         frame.add(intro);
         intro.addMouseListener(new MouseAdapter() {
