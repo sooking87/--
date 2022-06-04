@@ -19,7 +19,7 @@ public class IntroPanel extends JPanel {
 
         // background: Black, rect: White
         g.setColor(Color.WHITE);
-        g.fillRect(50, 50, 580, 920);
+        g.fillRect(50, 50, 600, 880);
 
         g.setColor(Color.BLACK);
         // Logo
@@ -27,7 +27,7 @@ public class IntroPanel extends JPanel {
         g.drawImage(logoTitle, 200, 580, 300, 100, this);
         // Command
         g.setFont(new Font("돋움", Font.ITALIC, 30));
-        g.drawString("[주문하려면 화면을 클릭해주세요]", 100, 900);
+        g.drawString("[주문하려면 화면을 클릭해주세요]", 100, 800);
     }
 }
 

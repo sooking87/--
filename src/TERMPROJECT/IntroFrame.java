@@ -22,7 +22,7 @@ public class IntroFrame {
             }
         });
 
-        frame.setSize(700, 1080);
+        frame.setSize(700, 1000);
         frame.setVisible(true);
     }
 

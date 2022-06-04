@@ -65,4 +65,8 @@ public class CheckboxTest extends JFrame implements ItemListener {
         ImageIcon xyimg = new ImageIcon(yimg);
         return xyimg;
     }
+
+    public static void main(String[] args) {
+        new CheckboxTest();
+    }
 }

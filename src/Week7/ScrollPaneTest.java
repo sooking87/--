@@ -31,4 +31,8 @@ public class ScrollPaneTest {
         f.setSize(300, 200);
         f.setVisible(true);
     }
+
+    public static void main(String[] args) {
+        new ScrollPaneTest();
+    }
 }

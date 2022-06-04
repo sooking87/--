@@ -3,6 +3,7 @@ package TERMPROJECT;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.HashMap;
 
 public class Order extends JPanel {
     JPanel menuPanel;
@@ -13,6 +14,8 @@ public class Order extends JPanel {
     Smoothie smoothie;
     Tea tea;
     Bakery bakery;
+    ListPanel li = new ListPanel();
+    RepaintBottomPanel link;
 
     public Order() {
         setLayout(null);
@@ -24,7 +27,8 @@ public class Order extends JPanel {
         for (int i = 0; i < beverage.length; i++) {
             // 버튼에 패널 이름 넣어주기
             menuBtn[i] = new JButton(beverage[i]);
-            menuBtn[i].setFont(new Font("굴림", Font.BOLD, 15));
+            menuBtn[i].setFont(new Font("굴림", Font.BOLD, 13));
+            menuBtn[i].setBackground(Color.GRAY);
             // 버튼에 이벤트 리스너 등록
             menuBtn[i].addActionListener(new ClickedMenuCategory());
             menuPanel.add(menuBtn[i]);
@@ -32,23 +36,39 @@ public class Order extends JPanel {
         menuPanel.setBounds(20, 25, 650, 50);
         add(menuPanel);
         // 카테고리 선택 시 나와야 되는 음료 메뉴들 패널
-        coffee = new Coffee();
-        smoothie = new Smoothie();
-        tea = new Tea();
-        bakery = new Bakery();
-        // 패널을 배열에 넣어줌 -> 반복문을 사용해서 붙혀줄 예정
-        coffee.setBounds(0, 100, 700, 700);
+        coffee = new Coffee(li, this);
+        smoothie = new Smoothie(li, this);
+        tea = new Tea(li, this);
+        bakery = new Bakery(li, this);
+        // 각 카테고리별
+        coffee.setBounds(0, 100, 700, 550);
         add(coffee);
-        smoothie.setBounds(0, 100, 700, 700);
+        smoothie.setBounds(0, 100, 700, 550);
         smoothie.setVisible(false);
         add(smoothie);
-        tea.setBounds(0, 100, 700, 700);
+        tea.setBounds(0, 100, 700, 550);
         tea.setVisible(false);
         add(tea);
-        bakery.setBounds(0, 100, 700, 700);
+        bakery.setBounds(0, 100, 700, 550);
         bakery.setVisible(false);
         add(bakery);
+        // coffee.setBackground(Color.PINK);
+        BottomPanel p = new BottomPanel(li);
+        // link = new RepaintBottomPanel(p);
+        int size = li.getLength();
+        System.out.println("order: size -> " + size);
 
+        p.setBounds(0, 670, 700, 280);
+        add(p);
+
+        // RepaintBottomPanel p2 = new RepaintBottomPanel(li);
+        // p.setBackground(Color.RED);
+        // p.setBounds(0, 670, 700, 280);
+        // add(p2);
+    }
+
+    public void drawPanel(JPanel draw) {
+        System.out.println("Order li.length() -> " + li.getLength());
     }
 
     class ClickedMenuCategory implements ActionListener {
@@ -82,8 +102,6 @@ public class Order extends JPanel {
                 bakery.setVisible(true);
 
             }
-
         }
     }
-
 }

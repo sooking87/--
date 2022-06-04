@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class Smoothie extends BottomButtons {
+    ListPanel li;
+    Order or;
     // 커피 및 라떼 이미지 가져오기
     ImageIcon[] images;
     JLabel[] imagesLabel; // ImageIcon을 넣어줄 라벨
@@ -26,10 +28,9 @@ public class Smoothie extends BottomButtons {
     String[] cost = { "6400", "7000", "6300", "6300", "6300", "6300", "7300", "7300", "7300", "7300", "5800", "5800",
             "6800", "5800", "5900" };
 
-    public Smoothie() {
-        System.out.println("fileName.length: " + fileName.length);
-        System.out.println("beverName.length: " + beverName.length);
-        System.out.println("cost.length: " + cost.length);
+    public Smoothie(ListPanel li, Order or) {
+        this.li = li;
+        this.or = or;
         images = new ImageIcon[15]; // 사진 추가시 숫자 변경 필요
         imagesLabel = new JLabel[15]; // 사진 추가시 숫자 변경 필요
         costLabel = new JLabel[15];
@@ -38,15 +39,15 @@ public class Smoothie extends BottomButtons {
         imagesPanel1 = new JPanel();
         imagesPanel2 = new JPanel();
 
-        imagesPanel1.setLayout(new GridLayout(3, 4, 20, 60));
-        imagesPanel2.setLayout(new GridLayout(1, 4, 20, 60));
+        imagesPanel1.setLayout(new GridLayout(3, 4, 0, 30));
+        imagesPanel2.setLayout(new GridLayout(1, 4, 0, 30));
 
         // imagesPanel1.setBackground(Color.RED);
         // 이미지를 불러오기 위한 반복문 -> 하나의 라벨에서 이미지 + 텍스트 라벨을 사용하되, 이미지 "밑에" 텍스트 라벨을 불러옵니다.
         for (int i = 0; i < 15; i++) {
             // 라벨에 이미지와 해당 음료 이름이 붙어 있는 라벨 생성
             images[i] = new ImageIcon("C:\\STUDY\\3학기\\전공\\--\\src\\Images\\smoothie\\" + fileName[i] + ".png");
-            images[i] = imageSetSize(images[i], 120, 120);
+            images[i] = imageSetSize(images[i], 100, 100);
             imagesLabel[i] = new JLabel();
             imagesLabel[i].setText(beverName[i]);
             imagesLabel[i].setIcon(images[i]);
@@ -62,7 +63,9 @@ public class Smoothie extends BottomButtons {
             menuImages[i].add(imagesLabel[i], BorderLayout.CENTER);
             menuImages[i].add(costLabel[i], BorderLayout.SOUTH);
 
-            // menuImages[i].addMouseListener(new ClickedImage());
+            // 이벤트 리스너 등록
+            menuImages[i]
+                    .addMouseListener(new ClickedImage(or, li, "smoothie", fileName[i], imagesLabel[i], costLabel[i]));
 
             if (i < 12) {
                 imagesPanel1.add(menuImages[i]);
