@@ -5,14 +5,16 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
-public class ListPanel extends JPanel {
+public class ListPanel extends Order {
     ArrayList<JPanel> li = new ArrayList<>();
     int size;
     int totalCnt = 0;
     int totalCost = 0;
     boolean change = false;
     Order or;
-    JScrollPane js;
+    JPanel temp;
+    // 추가 리스트
+    JScrollPane sp;
 
     public ListPanel() {
     }
@@ -21,12 +23,7 @@ public class ListPanel extends JPanel {
         this.or = or;
         this.totalCnt = dn;
         this.totalCost = dc;
-        int sizeBefore = li.size();
         li.add(add);
-        int sizeAfter = li.size();
-        if (sizeBefore != sizeAfter) {
-            change = true;
-        }
 
         System.out.println("addList: after ADD -> " + li.size());
         returnListPanel();
@@ -34,12 +31,18 @@ public class ListPanel extends JPanel {
 
     public void returnListPanel() {
         size = li.size();
+        temp = new JPanel();
         System.out.println("ListPanel: size -> " + size);
-        setLayout(new GridLayout(size, 1));
+        temp.setLayout(new GridLayout(size, 1, 20, 0));
+
         for (int i = 0; i < li.size(); i++) {
-            this.add(li.get(i));
+            temp.add(li.get(i));
         }
-        or.drawBottomPanel(this, totalCnt, totalCost);
+        sp = new JScrollPane(temp, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+                JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        sp.setPreferredSize(new Dimension(580, 160));
+        or.drawBottomPanel(sp, totalCnt, totalCost);
+        System.out.println("DRAWBOTTOM");
     }
 
     public int getLength() {

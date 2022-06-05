@@ -6,6 +6,7 @@ import java.awt.event.*;
 import java.util.HashMap;
 
 public class Order extends JPanel {
+    IntroPanel intro;
     JPanel menuPanel;
     JButton[] menuBtn; // 메뉴 카테고리를 반복문을 통해서 넣어줌
     String[] beverage = { "커피&라테&디카페인", "요거트스무디&프라페", "티&스파클링에이드", "베이커리" };
@@ -15,6 +16,7 @@ public class Order extends JPanel {
     Tea tea;
     Bakery bakery;
     ListPanel li;
+    // JPanel li;
     // 패널 아래 전체 화면
     JPanel finalPanel;
     JButton allClear;
@@ -26,10 +28,13 @@ public class Order extends JPanel {
     JButton card;
     JButton cash;
     // 추가 리스트
-    JScrollPane sp;
 
-    public Order(ListPanel li) {
+    public Order() {
+    }
+
+    public Order(ListPanel li, IntroPanel intro) {
         this.li = li;
+        this.intro = intro;
         setBackground(Color.DARK_GRAY);
         System.out.println("order 시작");
         setLayout(null);
@@ -76,24 +81,24 @@ public class Order extends JPanel {
         // add(p2);
     }
 
-    public void drawBottomPanel(ListPanel li, int totalCnt, int totalCost) {
+    public void drawBottomPanel(JScrollPane li, int totalCnt, int totalCost) {
         this.putCount += totalCnt;
         this.putTotalCost += totalCost;
         System.out.println("Order: totalCnt, totalCost -> " + putCount + " " + putTotalCost);
-        this.li = li;
+        JPanel p = new JPanel();
+        // sp = new JScrollPane(li, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+        // JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
-        sp = new JScrollPane(li, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-
-        sp.setViewportView(li);
-
-        System.out.println("Order: li.getLength() -> " + li.getLength());
-
-        sp.setBounds(5, 670, 680, 160);
-        this.add(sp);
+        // sp.setViewportView(li);
+        p.setBounds(30, 670, 600, 160);
+        p.add(li);
+        this.add(p);
         drawFinalPanel();
     }
 
     public void drawFinalPanel() {
+        System.out.println("DrawFinalPanel 그려야됨");
+        System.out.println("Order: totalCnt, totalCost -> " + putCount + " " + putTotalCost);
         finalPanel = new JPanel();
         finalPanel.setBackground(Color.DARK_GRAY);
         finalPanel.setLayout(new GridLayout(1, 4, 50, 50));
@@ -102,16 +107,13 @@ public class Order extends JPanel {
         allClear.setBackground(Color.GRAY);
         // allClear.setBounds(0, 800, 120, 120);
         allClear.setFont(new Font("굴림", Font.PLAIN, 20));
-        // allClear.addActionListener(new ActionListener() {
+        allClear.addActionListener(new ActionListener() {
 
-        // public void actionPerformed(ActionEvent e) {
-        // li = new ListPanel();
-        // putCount = 0;
-        // putTotalCost = 0;
-
-        // drawBottomPanel(li, putCount, putTotalCost);
-        // }
-        // });
+            public void actionPerformed(ActionEvent e) {
+                li = new ListPanel();
+                updateUI();
+            }
+        });
         finalPanel.add(allClear);
         // 주문 수량, 주문 금액
         countCost = new JPanel();
@@ -132,11 +134,13 @@ public class Order extends JPanel {
         // 카드 버튼
         card = new JButton("카드");
         card.setBackground(new Color(68, 103, 151));
+        card.addActionListener(new ClickedPayButton(this, intro));
         // card.setBounds(420, 20, 90, 120);
         finalPanel.add(card);
         // 현금 버튼
         cash = new JButton("현금");
         cash.setBackground(new Color(83, 166, 116));
+        cash.addActionListener(new ClickedPayButton(this, intro));
         // cash.setBounds(530, 20, 90, 120);
         finalPanel.add(cash);
         finalPanel.setBounds(40, 850, 600, 100);
@@ -179,5 +183,22 @@ public class Order extends JPanel {
 
             }
         }
+    }
+}
+
+class ClickedPayButton implements ActionListener {
+    Order or;
+    IntroPanel intro;
+
+    public ClickedPayButton(Order or, IntroPanel intro) {
+        this.or = or;
+        this.intro = intro;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        PayOptionCheck pay = new PayOptionCheck(or, intro);
+        pay.setLocation(100, 300);
+        pay.setVisible(true);
     }
 }

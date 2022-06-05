@@ -84,8 +84,7 @@ public class BuyList extends JPanel {
         addCost = new JLabel(Integer.toString(eachNum * eachCost), JLabel.CENTER);
         list.add(addCost);
         list.setBackground(Color.GRAY);
-        setSize(500, 100);
-        System.out.println("BuyList size: " + list.getWidth() + " " + list.getHeight());
+        // setPreferredSize(new Dimension(550, 50));
         add(list);
 
         li.addList(or, this, dilNum, dilCost);

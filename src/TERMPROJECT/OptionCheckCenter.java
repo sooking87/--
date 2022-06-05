@@ -2,6 +2,9 @@ package TERMPROJECT;
 
 import java.awt.*;
 import javax.swing.*;
+
+import SelfWeek6.BorderLayoutDemo;
+
 import java.awt.event.*;
 import java.util.ArrayList;
 
@@ -81,6 +84,7 @@ public class OptionCheckCenter extends JPanel {
         down = new JButton();
         down.setText(" - ");
         down.setBackground(new Color(205, 54, 41));
+
         if (Integer.parseInt(count.getText()) == 1) {
             down.setBackground(Color.GRAY);
         }

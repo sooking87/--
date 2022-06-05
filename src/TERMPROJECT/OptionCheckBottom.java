@@ -49,7 +49,6 @@ public class OptionCheckBottom extends JPanel {
                 beverInfo.put("주문 수량", totalNum);
                 beverInfo.put("얼음량", iceNum);
                 beverInfo.put("당도", sugarNum);
-                // printBeverInfo();
                 new BuyList(or, li, beverName, beverInfo);
                 System.out.println("OCBottom: li.getLength() -> " + li.getLength());
                 // or.drawBottomPanel(li);
