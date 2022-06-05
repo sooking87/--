@@ -71,14 +71,8 @@ public class Order extends JPanel {
         bakery.setBounds(0, 100, 700, 550);
         bakery.setVisible(false);
         add(bakery);
-        // coffee.setBackground(Color.PINK);
-        // BottomPanel p = new BottomPanel(li);
-        // p.setBounds(0, 670, 700, 280);
 
         drawFinalPanel();
-        // RepaintBottomPanel p2 = new RepaintBottomPanel(li);
-        // p.setBounds(0, 670, 700, 280);
-        // add(p2);
     }
 
     public void drawBottomPanel(JScrollPane li, int totalCnt, int totalCost) {
@@ -101,7 +95,7 @@ public class Order extends JPanel {
         System.out.println("Order: totalCnt, totalCost -> " + putCount + " " + putTotalCost);
         finalPanel = new JPanel();
         finalPanel.setBackground(Color.DARK_GRAY);
-        finalPanel.setLayout(new GridLayout(1, 4, 50, 50));
+        finalPanel.setLayout(new GridLayout(1, 4, 30, 50));
         // 전체 취소 버튼
         allClear = new JButton("<html>전체<br>취소</html>");
         allClear.setBackground(Color.GRAY);
@@ -110,7 +104,10 @@ public class Order extends JPanel {
         allClear.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
+                li.deleteArraList();
                 li = new ListPanel();
+                putCount = 0;
+                putTotalCost = 0;
                 updateUI();
             }
         });
