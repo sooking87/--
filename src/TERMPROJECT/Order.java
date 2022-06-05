@@ -14,10 +14,24 @@ public class Order extends JPanel {
     Smoothie smoothie;
     Tea tea;
     Bakery bakery;
-    ListPanel li = new ListPanel();
-    RepaintBottomPanel link;
+    ListPanel li;
+    // 패널 아래 전체 화면
+    JPanel finalPanel;
+    JButton allClear;
+    JPanel countCost; // 주문 수량, 주문 금액을 넣을 패널(2, 1);
+    JLabel count;
+    int putCount = 0, putTotalCost = 0;
+    JLabel totalCost;
+    JLabel placePC, placePTC;
+    JButton card;
+    JButton cash;
+    // 추가 리스트
+    JScrollPane sp;
 
-    public Order() {
+    public Order(ListPanel li) {
+        this.li = li;
+        setBackground(Color.DARK_GRAY);
+        System.out.println("order 시작");
         setLayout(null);
         menuPanel = new JPanel();
         menuPanel.setLayout(new GridLayout(1, 4));
@@ -53,22 +67,84 @@ public class Order extends JPanel {
         bakery.setVisible(false);
         add(bakery);
         // coffee.setBackground(Color.PINK);
-        BottomPanel p = new BottomPanel(li);
-        // link = new RepaintBottomPanel(p);
-        int size = li.getLength();
-        System.out.println("order: size -> " + size);
+        // BottomPanel p = new BottomPanel(li);
+        // p.setBounds(0, 670, 700, 280);
 
-        p.setBounds(0, 670, 700, 280);
-        add(p);
-
+        drawFinalPanel();
         // RepaintBottomPanel p2 = new RepaintBottomPanel(li);
-        // p.setBackground(Color.RED);
         // p.setBounds(0, 670, 700, 280);
         // add(p2);
     }
 
-    public void drawPanel(JPanel draw) {
-        System.out.println("Order li.length() -> " + li.getLength());
+    public void drawBottomPanel(ListPanel li, int totalCnt, int totalCost) {
+        this.putCount += totalCnt;
+        this.putTotalCost += totalCost;
+        System.out.println("Order: totalCnt, totalCost -> " + putCount + " " + putTotalCost);
+        this.li = li;
+
+        sp = new JScrollPane(li, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+
+        sp.setViewportView(li);
+
+        System.out.println("Order: li.getLength() -> " + li.getLength());
+
+        sp.setBounds(5, 670, 680, 160);
+        this.add(sp);
+        drawFinalPanel();
+    }
+
+    public void drawFinalPanel() {
+        finalPanel = new JPanel();
+        finalPanel.setBackground(Color.DARK_GRAY);
+        finalPanel.setLayout(new GridLayout(1, 4, 50, 50));
+        // 전체 취소 버튼
+        allClear = new JButton("<html>전체<br>취소</html>");
+        allClear.setBackground(Color.GRAY);
+        // allClear.setBounds(0, 800, 120, 120);
+        allClear.setFont(new Font("굴림", Font.PLAIN, 20));
+        // allClear.addActionListener(new ActionListener() {
+
+        // public void actionPerformed(ActionEvent e) {
+        // li = new ListPanel();
+        // putCount = 0;
+        // putTotalCost = 0;
+
+        // drawBottomPanel(li, putCount, putTotalCost);
+        // }
+        // });
+        finalPanel.add(allClear);
+        // 주문 수량, 주문 금액
+        countCost = new JPanel();
+        countCost.setLayout(new GridLayout(2, 2));
+
+        count = new JLabel("개수", JLabel.CENTER);
+        placePC = new JLabel(Integer.toString(putCount), JLabel.CENTER);
+        count.setFont(new Font("굴림", Font.ITALIC, 15));
+        totalCost = new JLabel("금액", JLabel.CENTER);
+        placePTC = new JLabel(Integer.toString(putTotalCost), JLabel.CENTER);
+        totalCost.setFont(new Font("굴림", Font.ITALIC, 15));
+        countCost.add(count);
+        countCost.add(placePC);
+        countCost.add(totalCost);
+        countCost.add(placePTC);
+        // countCost.setBounds(200, 30, 200, 70);
+        finalPanel.add(countCost);
+        // 카드 버튼
+        card = new JButton("카드");
+        card.setBackground(new Color(68, 103, 151));
+        // card.setBounds(420, 20, 90, 120);
+        finalPanel.add(card);
+        // 현금 버튼
+        cash = new JButton("현금");
+        cash.setBackground(new Color(83, 166, 116));
+        // cash.setBounds(530, 20, 90, 120);
+        finalPanel.add(cash);
+        finalPanel.setBounds(40, 850, 600, 100);
+        this.add(finalPanel);
+    }
+
+    public void setListPanel(ListPanel li) {
+        this.li = li;
     }
 
     class ClickedMenuCategory implements ActionListener {

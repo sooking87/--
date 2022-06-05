@@ -11,13 +11,16 @@ public class ListPanel extends JPanel {
     int totalCnt = 0;
     int totalCost = 0;
     boolean change = false;
+    Order or;
+    JScrollPane js;
 
     public ListPanel() {
-
     }
 
-    public void addList(JPanel add) {
-        System.out.println("addList: add");
+    public void addList(Order or, JPanel add, int dn, int dc) {
+        this.or = or;
+        this.totalCnt = dn;
+        this.totalCost = dc;
         int sizeBefore = li.size();
         li.add(add);
         int sizeAfter = li.size();
@@ -26,16 +29,17 @@ public class ListPanel extends JPanel {
         }
 
         System.out.println("addList: after ADD -> " + li.size());
+        returnListPanel();
     }
 
-    public JPanel returnListPanel() {
+    public void returnListPanel() {
         size = li.size();
         System.out.println("ListPanel: size -> " + size);
         setLayout(new GridLayout(size, 1));
         for (int i = 0; i < li.size(); i++) {
-            add(li.get(i));
+            this.add(li.get(i));
         }
-        return this;
+        or.drawBottomPanel(this, totalCnt, totalCost);
     }
 
     public int getLength() {
@@ -45,5 +49,9 @@ public class ListPanel extends JPanel {
     public boolean isChanged() {
         System.out.println("listPanel change: " + change);
         return change;
+    }
+
+    public void setTotalNum(String num) {
+
     }
 }
