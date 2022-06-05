@@ -15,13 +15,13 @@ public class PayDone extends JDialog {
         // 결제되었습니다.
         fin = new JLabel("결제되었습니다.");
         fin.setFont(new Font("굴림", Font.ITALIC, 15));
-        fin.setBounds(80, 30, 150, 50);
+        fin.setBounds(90, 30, 150, 50);
         add(fin);
 
         // 확인 버튼
         ok = new JButton("확인");
         ok.setFont(new Font("굴림", Font.PLAIN, 10));
-        ok.setBounds(100, 80, 60, 50);
+        ok.setBounds(110, 80, 60, 50);
         ok.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);

@@ -14,6 +14,7 @@ public class IntroFrame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
 
+        // 화면 클릭시 Order 클래스 생성
         frame.add(intro);
         intro.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
@@ -28,7 +29,4 @@ public class IntroFrame {
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) {
-        new IntroFrame();
-    }
 }

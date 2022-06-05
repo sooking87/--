@@ -50,7 +50,7 @@ public class PayOptionCheck extends JDialog {
                 setVisible(false);
                 or.setVisible(false);
                 PayDone done = new PayDone();
-                done.setLocation(150, 350);
+                done.setLocation(180, 350);
                 done.setVisible(true);
                 intro.setVisible(true);
             }

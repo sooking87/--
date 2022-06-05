@@ -134,13 +134,16 @@ public class OptionCheckCenter extends JPanel {
         first.add(aboutCost);
         add(first);
 
-        // 2행: 얼음양
+        // 2행: 얼음량
         second = new JPanel();
-        second.setLayout(new BorderLayout(30, 0));
-        secondTitle = new JLabel("얼음량", JLabel.RIGHT);
+        // "얼음량" 라벨
+        secondTitle = new JLabel("얼음량", JLabel.LEFT);
         secondTitle.setPreferredSize(new Dimension(140, 50));
+        secondTitle.setHorizontalAlignment(SwingConstants.CENTER);
+        secondTitle.setVerticalAlignment(SwingConstants.CENTER);
         second.add(secondTitle, BorderLayout.WEST);
         secondTitle.setFont(new Font("굴림", Font.BOLD, 25));
+        // 얼음량에 대한 라디오버튼
         ButtonGroup group = new ButtonGroup();
         JPanel radioBtnTemp = new JPanel();
         ice = new JRadioButton[3];
@@ -149,7 +152,7 @@ public class OptionCheckCenter extends JPanel {
             ice[i].setFont(new Font("굴림", Font.BOLD, 20));
             group.add(ice[i]);
             ice[i].setHorizontalAlignment(SwingConstants.CENTER);
-            ice[i].setVerticalAlignment(SwingConstants.BOTTOM);
+            ice[i].setVerticalAlignment(SwingConstants.CENTER);
             radioBtnTemp.add(ice[i]);
             ice[i].addItemListener(new Checked(ice.length, ice));
         }
@@ -158,11 +161,14 @@ public class OptionCheckCenter extends JPanel {
 
         // 3행: 당도
         third = new JPanel();
-        third.setLayout(new BorderLayout(20, 0));
-        thirdTitle = new JLabel("당도", JLabel.RIGHT);
+        // "당도" 라벨
+        thirdTitle = new JLabel("당도", JLabel.LEFT);
         thirdTitle.setPreferredSize(new Dimension(100, 50));
+        thirdTitle.setHorizontalAlignment(SwingConstants.CENTER);
+        thirdTitle.setVerticalAlignment(SwingConstants.CENTER);
         third.add(thirdTitle, BorderLayout.WEST);
         thirdTitle.setFont(new Font("굴림", Font.BOLD, 25));
+        // 당도에 대한 라디오 버튼
         ButtonGroup group2 = new ButtonGroup();
         JPanel radioBtnTemp2 = new JPanel();
 

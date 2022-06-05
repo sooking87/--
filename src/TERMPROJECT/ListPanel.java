@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
-public class ListPanel extends Order {
+public class ListPanel extends JPanel {
     ArrayList<JPanel> arrayListPanel = new ArrayList<>();
     int size = 1;
     int totalCnt = 0;
@@ -38,8 +38,9 @@ public class ListPanel extends Order {
         sp = new JScrollPane(temp, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
                 JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         sp.setPreferredSize(new Dimension(580, 160));
-        or.drawBottomPanel(sp, totalCnt, totalCost);
 
+        or.drawBottomPanel(sp, totalCnt, totalCost);
+        sp.updateUI();
         System.out.println("DRAWBOTTOM");
     }
 

@@ -33,7 +33,7 @@ public class ClickedImage extends MouseAdapter {
         oc.add(new OptionCheckTitle(), BorderLayout.NORTH);
         oc.add(new OptionCheckCenter(oc, menuCategory, fileName, beverName, cost), BorderLayout.CENTER);
         oc.add(new OptionCheckBottom(or, li, oc, beverName, cost), BorderLayout.SOUTH);
-        oc.setLocation(100, 120);
+        oc.setLocation(100, 200);
         oc.setVisible(true);
     }
 

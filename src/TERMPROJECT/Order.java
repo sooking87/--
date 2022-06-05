@@ -3,7 +3,6 @@ package TERMPROJECT;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-import java.util.HashMap;
 
 public class Order extends JPanel {
     IntroPanel intro;
@@ -72,6 +71,7 @@ public class Order extends JPanel {
         bakery.setVisible(false);
         add(bakery);
 
+        // 메뉴 선택 리스트 및 취소, 카드, 현금 버튼이 있는 패널
         drawFinalPanel();
     }
 

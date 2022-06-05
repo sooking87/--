@@ -17,7 +17,7 @@ public class OptionCheck extends JDialog {
         setLayout(new BorderLayout());
 
         // setFont(new Font("굴림", Font.ITALIC, 100));
-        setSize(500, 800);
+        setSize(500, 560);
     }
 
     public void setName(String fileName) {
